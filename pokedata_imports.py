@@ -2,24 +2,26 @@ from matplotlib import pyplot as plt
 import pandas as pd
 import numpy as np
 
-class Plot:
-    def __init__(self) -> None:
-        pass
+# class Plot:
+#     def __init__(self) -> None:
+#         pass
 
-    def pie_chart(
-            self,
-            data,
-            labels,
-            autopct="%1.1f%%",
-            title:str = "A Normal Pie-Chart",
-    ):
-        plt.pie(data, labels=labels, autopct=autopct)
-        plt.title(title)
-        plt.show()
+#     def pie_chart(
+#             self,
+#             data,
+#             labels,
+#             autopct="%1.1f%%",
+#             title:str = "A Normal Pie-Chart",
+#     ):
+#         plt.pie(data, labels=labels, autopct=autopct)
+#         plt.title(title)
+#         plt.show()
 
-class PokemonJSON:
-    @staticmethod
-    def type_colors(poke_type:str):
+class PokeTypeInfo:
+    def __init__(self, poke_type: str = "Normal"):
+        self.poke_type = poke_type
+
+    def type_colors(self):
         color_dict = {
             "Normal": "#A8A77A",
             "Fire": "#EE8130",
@@ -40,7 +42,4 @@ class PokemonJSON:
             "Steel": "#B7B7CE",
             "Fairy": "#D685AD"
         }
-        return color_dict[poke_type]
-    
-type_normal = Plot.type_colors("Normal")
-print(type_normal)
+        return color_dict[self.poke_type]
