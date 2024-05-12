@@ -2,21 +2,6 @@ from matplotlib import pyplot as plt
 import pandas as pd
 import numpy as np
 
-# class Plot:
-#     def __init__(self) -> None:
-#         pass
-
-#     def pie_chart(
-#             self,
-#             data,
-#             labels,
-#             autopct="%1.1f%%",
-#             title:str = "A Normal Pie-Chart",
-#     ):
-#         plt.pie(data, labels=labels, autopct=autopct)
-#         plt.title(title)
-#         plt.show()
-
 class PokeTypeInfo:
     def __init__(self, poke_type: str = "Normal"):
         self.poke_type = poke_type
@@ -43,3 +28,24 @@ class PokeTypeInfo:
             "Fairy": "#D685AD"
         }
         return color_dict[self.poke_type]
+    
+class PokePlot:
+    def __init__(self) -> None:
+        pass
+
+    def pie_chart(
+            self,
+            data=[10, 10, 10, 10, 10],
+            labels=["एक", "दुइ", "तिन", "चार", "पाँच"],
+            autopct:str="%1.1f%%",
+            title:str = "A Normal Pie-Chart",
+            pctdistance:float = 0.8,
+            show_legend:bool = False,
+            figsize:tuple = (10, 10)
+    ):
+        plt.figure(figsize=figsize)
+        plt.pie(data, labels=labels, autopct=autopct, pctdistance=pctdistance)
+        plt.title(title)
+        if show_legend:
+            plt.legend(labels, loc="upper right")
+        plt.show()
